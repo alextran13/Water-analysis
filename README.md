@@ -38,8 +38,11 @@ I came accross an interesting data of water quality. It includes chemicals and t
 
 
 Sources:
+
 (1) https://www.uclahealth.org/news/ask-the-doctors-is-water-with-a-high-ph-safe-to-drink
+
 (2) https://www.usgs.gov/special-topics/water-science-school/science/hardness-water
+
 (3) https://www.kent.co.in/blog/what-are-total-dissolved-solids-tds-how-to-reduce-them/
 
 
