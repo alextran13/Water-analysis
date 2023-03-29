@@ -85,9 +85,55 @@ Sources:
 * How many water entries are drinkable and do these entries match with our own researched standards?
 
 ### Prepare
-
+>   
+    CREATE TABLE IF NOT EXISTS public.water(
+    ph numeric,
+    hardness numeric,
+    solids numeric,
+    chloramines numeric,
+    sulfate numeric,
+    conductivity numeric,
+    toc numeric,
+    thm numeric,
+    turbidity numeric,
+    potability boolean
+    );
+    
+>   
+    select * from water
+    
+Table was imported and looks good!
 
 ### Process
+
+Look for duplicates: 
+>   
+    select count(*) from water
+    where ph is not null
+    and hardness is not null
+    and solids is not null
+    and chloramines is not null
+    and sulfate is not null
+    and conductivity is not null
+    and toc is not null
+    and thm is not null
+    and turbidity is not null
+    group by ph, hardness, solids, chloramines,sulfate,
+    conductivity,
+    toc,
+    thm,
+    turbidity
+    having count(*) > 1;
+    
+Results shows none so I move on to finding missing values
+
+> 
+    select count(*) from water where ph is null
+    
+After plugging in the same syntax for all columns I found that there are 491 missing values in ph column, 781 in sulfate, 162 in THMs
+
+
+
 ### Analyze
 ### Share
 ### Act
