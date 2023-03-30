@@ -132,8 +132,69 @@ Results shows none so I move on to finding missing values
     
 After plugging in the same syntax for all columns I found that there are 491 missing values in ph column, 781 in sulfate, 162 in THMs
 
-
-
 ### Analyze
+
+First I want to look at the statistic summary of my dataset so I create a table of this summary
+
+>
+    create table summary_water as
+    select 'ph' as category,
+    round(avg(ph)) as mean,
+    round(max(ph)) as max,
+    round(min(ph)) as min,
+    round(percentile_cont(0.5) within group
+        (order by ph)) as median,
+    count(ph) as count_total
+    from water;
+
+    select * from summary_water;
+
+    select round(ph),count(round(ph))
+    from water
+    group by round(ph)
+    order by count(round(ph)) DESC limit 1;
+
+
+    select * from summary_water,
+
+    insert into summary_water(category)
+    values 
+    ('solids'),
+    ('chloramines'),
+    ('sulfate'),
+    ('conductivity'),
+    ('toc'),
+    ('thm'),
+    ('turbidity'),
+    ('potability')
+
+    select * from summary_water;
+
+
+
+    update summary_water
+    set max = 
+    (select round(max(hardness)) 
+    from water),
+    min = (select round(min(hardness))
+         from water),
+    median = (select round(percentile_cont(0.5)
+        within group (order by hardness)) 
+         from water),
+    count_not_null = (select count(hardness)
+        from water
+        where hardness is not null),
+    count_total = (select count(*) from water),
+    count_null = (select count(hardness)
+        from water
+        where hardness is null)
+    where category = 'hardness'
+
+
+<img width="900" alt="Screenshot 2023-03-30 at 4 31 12 PM" src="https://user-images.githubusercontent.com/74520739/228794336-ad68acf8-97e8-4c84-b5a5-184c0883dba0.png">
+
+I also found from "potability" column that there 1278 water entries that are considered drinkable, 1998 are not drinkable with no missing values. 
+
+
 ### Share
 ### Act
