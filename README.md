@@ -34,7 +34,7 @@ Unit in our data is mg/L or ppm.
 * Chloramine: is a type of disinfectant used to treat water from bacteria as well as waterborne diseases in water pipeline. Formed when combined chlorine with ammonia. An usual amount of chloramine used is between 1.0 and 4.0 mg/L. No health effects related to chloramine has been reported with concentration under 50 mg/L (4). Unit in data: mg/L or ppm.
 
 
-<img width="270" alt="2023-03-015_10000" src="https://user-images.githubusercontent.com/74520739/225253443-a80c7c2f-7bd4-473a-8129-b8298e10218f.png"><img width="700" alt="2023-03-015_10000" src="https://user-images.githubusercontent.com/74520739/225251682-e77ae47b-5df1-4a87-a83d-47528f5451fc.png"> 
+<img width="220" alt="2023-03-015_10000" src="https://user-images.githubusercontent.com/74520739/228851031-21cf15c9-b504-4a11-a9c2-c8aaddeebaa7.png">  <img width="700" alt="2023-03-015_10000" src="https://user-images.githubusercontent.com/74520739/225251682-e77ae47b-5df1-4a87-a83d-47528f5451fc.png"> 
 
 
 * Sulfate: Higher than 500 mg/L sulfate in drinking water can lead to dehydration and laxative effect, especially in infants. Sulfate in drinking water can form sulfate-oxidizing bacteria, however, does not cause any known harmful effects to consumers (5).  Unit in our data is mg/L or ppm.
