@@ -197,5 +197,73 @@ First I want to look at the statistic summary of my dataset so I create a table 
 I also found from "potability" column that there 1278 water entries that are considered drinkable, 1998 are not drinkable with no missing values. 
 
 
+>
+    select
+    sum(case 
+        when hardness < 61 then 1
+        else 0
+        end) "soft",
+    sum(case
+      when hardness >= 61 
+        and hardness < 120 then 1
+        else 0
+        end) 
+        as moderately_hard,
+    sum(case
+      when hardness >= 121 
+        and hardness < 180 then 1
+        else 0
+        end) as hard,
+    sum(case
+      when hardness > 180 then 1
+      else 0
+      end) as very_hard
+    from water;
+
+Results show 1 water is soft, 51 waters are moderately_hard, 878 waters are hard, and 2341 waters are in very hard category. 
+
+> 
+    select count(solids) from water
+    where solids > 500;  
+
+There are 3275/3276 waters have over 500ppm solids.
+
+>
+    select count(chloramines) from water
+    where chloramines <50
+    
+There are 3276/3276 water returns to be under 50ppm chloramines.
+
+>
+    select count(sulfate) from water
+    where sulfate <500;
+    
+There are 2495/2495 sulfate concentration under 500ppm so 0 are more than 500ppm
+
+>
+    select count(conductivity) from water
+    where conductivity <1000;
+
+There are 3276/3276 water returns to be under 1000mcg/cm so 0 are more than 1000mcg/cm in conductivity
+
+>
+    select count(toc) from water
+    where toc >2;
+
+There are 3276/3276 water returns to be above 2ppm total organic carbon.
+
+> 
+    select count(thm) from water
+    where thm > 100;
+    
+There are 60/3114 entries return to be above 100ppb trihalomethanes.
+
+>
+    select count(turbidity) from water
+    where turbidity > 1
+
+There are 3276/3276 water entries return to be above 1 NTU in turbidity.
+
+    
 ### Share
 ### Act
