@@ -275,3 +275,12 @@ There are 3276/3276 water entries return to be above 1 NTU in turbidity.
 
 ### Act
 
+According to my research, drinkable water should have a maximum turbidity of 1NTU. From the datasets, there are 3276/3276 waters that have more than 1 NTU turbidity. That means the water is not clear enough for drinking according to WHO suggested standard. However, the potability data suggests 1278 waters that are considered drinkable. From this data alone, we can already conclude that our researched potability does not match the one in the datasets. Same results shown in total organic carbon concentration. A suggested concentration of 2ppm is considered safe to consume, but all data entries do not pass this criteria.
+
+Say we let the turbidity and total organic carbon aside, trihalomethanes are carcinogenic and therefore no more than 100ppb of its concentration should be consumed. Based on what I found, 60/3114 waters have more than 100ppb trihalomethanes. Hence 3054 waters are drinkable based on trihalomethanes standard.
+
+All waters pass 1000mcg/cm in conductivity and all water pass the criteria of 500ppm sulfate, and 50ppm in chloramines. 
+
+There is only one water that pass a 500ppm standard for solids. 
+
+
