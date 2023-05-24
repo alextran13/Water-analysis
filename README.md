@@ -6,17 +6,20 @@ Date: March 15, 2023
 
 Tools used: postgreSQL pgadmin4, Tableau public desktop
 
+Source: This dataset was found on Kaggle at https://www.kaggle.com/datasets/adityakadiwal/water-potability by Aditya Kadiwal. Since there was no original source of the dataset, I constructed a story behind the datasets to better apply my findings to the situation. 
 
 ### Scenario
 
-I came accross an interesting data of water quality. It includes chemicals and testing indexes that will be used to determine the quality of the water.
+A company that works on water purification to make drinking water in their newly assigned area. They wanted to know what the status of water in the region, and whether it is profitable to purify them to make drinking water. 
+
+
 
 * pH: A quantitative measurement for acidity or basicity of a liquid form. It ranges from 0 to 14, with 0 being most acidic and 14 most basic. pH is not regulated by EPA as pH is a aesthetic feature, therefore subjective to people. However I found a fun fact from a UCLA Health article that says Human blood is 7.4!  I attached a picture below so we can put pH under some perspectives for easier comparison.
 
 
 <img width="550" alt="2023-03-015_10000" src="https://user-images.githubusercontent.com/74520739/225225786-bf020060-1b32-438b-a6f1-d1229f2d774e.png">
 
-* Hardness: Essentially is how high the mineral content in water is, the higher the content, the "harder" the water. Hardness has two categories: permanent and temporary hardness. Temporary hardness can be caused by Bicarbonates of Magnesium and Calcium. Some hardness can give moderate health benefits, others, however, can block oil pipeline leading to production loss. The range of hardness include soft, moderately hard, hard, and very hard. 
+* Hardness: Essentially is how high the mineral content in water is, the higher the content, the "harder" the water. Hardness has two categories: permanent and temporary hardness. Temporary hardness can be caused by Bicarbonates of Magnesium and Calcium. Some hardness can give moderate health benefits, others, however, can block oil pipeline leading to production loss. The range of hardness include soft, moderately hard, hard, and very hard. Drinking water is advised to not exceed 170mg/L (12)
 
   - Soft: 0 to 60 mg/L
 
@@ -46,7 +49,7 @@ Unit in our data is mg/L or ppm.
 <img width="400" alt="2023-03-015_10000" src="https://user-images.githubusercontent.com/74520739/228463271-7cbffbfd-0edd-4342-94d2-f34aac5fcc66.png">
 (7)
 
-* Trihalomethanes (THMs): THMs are the compounds that are formed when halogen elements replace hydrogen atoms. Trihalomethanes are often used as solvents or refrigerants. These compounds can cause cancer, especially colon, rectal cancers, and reproductive risks. The US EPA allows 100 parts per billion (ppb) in drinking water
+* Trihalomethanes (THMs): THMs are the compounds that are formed when halogen elements replace hydrogen atoms. Trihalomethanes are often used as solvents or refrigerants. These compounds can cause cancer, especially colon, rectal cancers, and reproductive risks. The US EPA allows 100 parts per billion (ppb) or 0.1 ppm in drinking water
 
 <img width="800" alt="2023-03-015_10000" src="https://user-images.githubusercontent.com/74520739/228473721-3180a097-9b80-42c0-857d-7cbb5f5692b9.png">
 (8)
@@ -71,6 +74,7 @@ Sources:
 [9](https://www.usgs.gov/special-topics/water-science-school/science/turbidity-and-water#:~:text=Turbidity%20is%20the%20measure%20of,light%2C%20the%20higher%20the%20turbidity./)
 [10](https://www.hyperfilteration.in/blogs/2022/04/08/what-is-turbidity/)
 [11](https://www.lenntech.com/turbidity.htm/)
+[12](https://www.puragainwater.com/what-is-the-ideal-water-hardness-for-drinking/#:~:text=The%20general%20rule%20of%20thumb,levels%20of%20calcium%20and%20magnesium.htm)
 
 ### Ask
 * How many water entries are potable?
@@ -267,20 +271,35 @@ There are 3276/3276 water entries return to be above 1 NTU in turbidity.
     
 ### Share
 
-<img width="750" alt="2023-03-015_10000" src="https://user-images.githubusercontent.com/74520739/232004974-3c5db91c-7d5d-460b-9d7c-5742c85fd24b.png">
+<img width="750" alt="2023-03-015_10000" src="https://github.com/alextran13/Water-analysis/assets/74520739/e2c5f11b-4dfd-487c-a801-8e3f301b3f02">
 
 
-<img width="750" alt="2023-03-015_10000" src="https://user-images.githubusercontent.com/74520739/232005971-abaf09a2-7ef1-4c4d-9b83-fdc211d9de52.png">
+<img width="750" alt="2023-03-015_10000" src="https://github.com/alextran13/Water-analysis/assets/74520739/a6162987-a394-4705-93e2-9728dcbfb6f5">
 
 
-### Act
+<img width="750" alt="2023-03-015_10000" src="https://github.com/alextran13/Water-analysis/assets/74520739/65603c44-b9f4-4e85-8c13-3d7869ea1b0b">
+
+
+<img width="750" alt="2023-03-015_10000" src="https://github.com/alextran13/Water-analysis/assets/74520739/40c12c4d-e3d6-4223-bd22-5d1d5e921f47">
+
+
 
 According to my research, drinkable water should have a maximum turbidity of 1NTU. From the datasets, there are 3276/3276 waters that have more than 1 NTU turbidity. That means the water is not clear enough for drinking according to WHO suggested standard. However, the potability data suggests 1278 waters that are considered drinkable. From this data alone, we can already conclude that our researched potability does not match the one in the datasets. Same results shown in total organic carbon concentration. A suggested concentration of 2ppm is considered safe to consume, but all data entries do not pass this criteria.
 
-Say we let the turbidity and total organic carbon aside, trihalomethanes are carcinogenic and therefore no more than 100ppb of its concentration should be consumed. Based on what I found, 60/3114 waters have more than 100ppb trihalomethanes. Hence 3054 waters are drinkable based on trihalomethanes standard.
+Say we let the turbidity and total organic carbon aside, trihalomethanes are carcinogenic and therefore no more than 100ppb of its concentration should be consumed. Based on what I found, 60/3114 waters have more than 100ppb trihalomethanes. Hence 3054 waters are drinkable based on trihalomethanes standard. I included in the dashboard of THMs graph with an alternative standard of 80ppm which is a lot higher maximum standard so all water entries pass this criteria. Eventhough this 80ppm standard could not be cited anywhere, it was found on the description of the dataset Kaggle link. Hence, I included it for purpose of comparison. 
 
 All waters pass 1000mcg/cm in conductivity and all water pass the criteria of 500ppm sulfate, and 50ppm in chloramines. 
 
 There is only one water that pass a 500ppm standard for solids. 
+
+
+
+### Act
+
+From these findings, I realize that the standards of these water not passing are turbidity, total carbon, and solids. These can be fixed by vacumn filtration method. This method is easy and cheap to perform. 
+
+In conclusion, water in this region is profitable to improve in quality for drinking and we should definitely proceed with the purification process. 
+
+<img width="550" alt="2023-03-015_10000" src="https://github.com/alextran13/Water-analysis/assets/74520739/a49bec66-2d9b-410f-aa69-ba30157e9519">
 
 
